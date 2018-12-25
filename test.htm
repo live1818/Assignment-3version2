@@ -1,0 +1,187 @@
+<html>
+	<head>
+		<title>Ass3_sort</title>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        
+	</head>
+	<body>
+        
+        <div id="sel">
+            Sort By:
+            <select id="Select">
+                <option value="">None</option>
+                <option value="0">Date(Oldest)</option>
+                <option value="1">Like</option>
+                <option value="2">Date(Newest)</option>
+
+
+            </select>
+        </div>
+    
+  
+        
+        <ul id="ull">
+        
+            <li>
+            
+            <img src="http://parspets.com/wp-content/uploads/2018/06/good-health.jpg" width="200" height="200" />
+                <div>
+                    <br>
+            name: "Cute Cat"<br>
+            likes: 20<br>
+            dateUploaded: "23/10/2018"
+           
+                    </div>
+            </li>
+        
+            <li>
+           
+            
+            <img src="https://cde.peru.com//ima/0/0/5/9/8/598279/611x458/gato-negro.jpg" width="200" height="200" />
+            <div>
+                <br>
+            name: "Black Cat"<br>
+            likes: 40<br>
+            dateUploaded: "22/10/2018"
+           </div>
+
+        </li>
+        <li>
+            
+            <img src="https://i.ytimg.com/vi/lrvqjdMcjjQ/hqdefault.jpg" width="200" height="200" />
+            <div>
+                <br>
+            name: "Funny Cat"<br>
+            likes: 35<br>
+            dateUploaded: "20/10/2018"
+            </div>
+        </li>
+        <li>
+            
+            <img src="https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/01/Grumpy-Cat-920x584.jpg" width="200" height="200" />
+            <div>
+                <br>
+            name: "Grumpy Cat"<br>
+            likes: 50<br>
+            dateUploaded: "24/10/2018"
+            </div>
+            
+        </li>
+
+      
+        </ul>
+        
+        <hr/>
+       
+        <h2>After sorting</h2>
+        
+        <ul id="asort">
+        
+        
+        
+        
+        
+        </ul>
+
+
+	<script>
+        
+    
+		var ids = document.getElementById('Select');
+        var myList = document.getElementById("asort");
+		
+
+		    var arrayOb = [
+        {
+            name: "Cute Cat",
+            likes: 20,
+            dateUploaded: "23/10/2018",
+            src: "http://parspets.com/wp-content/uploads/2018/06/good-health.jpg"
+        },
+        {
+            name: "Black Cat",
+            likes: 40,
+            dateUploaded: "22/10/2018",
+            src: "https://cde.peru.com//ima/0/0/5/9/8/598279/611x458/gato-negro.jpg"
+        },
+        {
+            name: "Funny Cat",
+            likes: 35,
+            dateUploaded: "20/10/2018",
+            src: "https://i.ytimg.com/vi/lrvqjdMcjjQ/hqdefault.jpg"
+        },
+        {
+            name: "Grumpy Cat",
+            likes: 50,
+            dateUploaded: "24/10/2018",
+            src: "https://ksassets.timeincuk.net/wp/uploads/sites/55/2018/01/Grumpy-Cat-920x584.jpg"
+        }
+		    ]
+		
+		ids.onchange = function (){
+            
+        
+            	
+		if(ids==0)
+		{
+			
+            var dateOArray = arrayOb;
+            
+			dateOArray.sort(function(a,b) {
+				return a.dateUploaded - b.dateUploaded;
+			});
+   
+            
+            for(var i=0;i< dateOArray.length;i++){
+            myList.innerHTML =+ '<li><img src="' +dateOArray[i].src+ '" /> <div> <br>name:"' +dateOArray[i].name+ '" <br>likes:"' +dateOArray[i].likes+ '" <br> dateUploaded:"' +dateOArray[i].dateUploaded+ '" </div> </li>';
+                
+                }
+            
+		}
+		else if(ids==1){
+            
+            
+             var likeArray = arrayOb;
+            
+            likeArray.sort(function(a,b) {
+				return b.likes - a.likes;
+			});
+            
+            
+			 for(var i=0;i< likeArray.length;i++){
+            myList.innerHTML=+ '<li><img src="' +likeArray[i].src+ '" /> <div> <br>name:"' +likeArray[i].name+ '" <br>likes:"' +likeArray[i].likes+ '" <br> dateUploaded:"' +likeArray[i].dateUploaded+ '" </div> </li>';
+                
+                }
+            
+            
+				}
+		
+		else if(ids==2){
+            
+            
+            var dateNArray = arrayOb;
+            
+            	dateNArray.sort(function(a,b) {
+				return b.dateUploaded - a.dateUploaded;
+			});
+            
+			 for(var i=0;i< dateNArray.length;i++){
+            myList.innerHTML=+ '<li><img src="' +dateNArray[i].src+ '" /> <div> <br>name:"' +dateNArray[i].name+ '" <br>likes:"' +dateNArray[i].likes+ '" <br> dateUploaded:"' +dateNArray[i].dateUploaded+ '" </div> </li>';
+                
+                }
+            
+            
+		}
+            else{}
+            
+            
+        }
+			
+			
+	
+		
+	
+	
+		</script>	
+	</body>
+</html>
